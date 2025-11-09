@@ -45,6 +45,7 @@ html[data-theme="dark"] body, :root[data-theme="dark"] body, body[data-theme="da
 .logo::after{content:"";position:absolute;right:-10px;top:6px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 12px var(--glow);opacity:0.95}
 
 .main-nav{position:relative}
+.header-right{display:flex;align-items:center;gap:0.5rem}
 .nav-list{list-style:none;display:flex;gap:1rem}
 .nav-list a{color:var(--text);text-decoration:none;padding:0.5rem;display:inline-block}
 .nav-list a:focus{outline:2px dashed var(--accent);outline-offset:3px}
