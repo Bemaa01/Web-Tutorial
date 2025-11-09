@@ -41,7 +41,7 @@ html[data-theme="dark"] body, :root[data-theme="dark"] body, body[data-theme="da
 /* Header */
 .site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,0.03);position:sticky;top:0;z-index:30;backdrop-filter:blur(6px)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
-.logo{font-weight:700;color:var(--text);text-decoration:none;position:relative}
+.logo{font-weight:700;color:var(--text);text-decoration:none;position:relative;margin-left:0.5rem}
 .logo::after{content:"";position:absolute;right:-10px;top:6px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 12px var(--glow);opacity:0.95}
 
 .main-nav{position:relative}
@@ -81,6 +81,16 @@ html[data-theme="dark"] body, :root[data-theme="dark"] body, body[data-theme="da
 
 @media (max-width:480px){
 	.profile-photo{width:180px;height:240px}
+
+	/* Keep hero content beside the image on narrow phones: */
+	.hero-grid{flex-direction:row;align-items:center;gap:12px;text-align:left;flex-wrap:nowrap}
+	.hero-photo{flex:0 0 38%;display:flex;align-items:center;justify-content:center}
+	.hero-content{flex:1;padding-left:0.75rem;min-width:0}
+	/* Make heading and lead smaller so they fit beside the image */
+	.hero-content h1{font-size:1.1rem;line-height:1.15;margin-bottom:0.25rem}
+	.hero-content .lead, p.lead{font-size:0.95rem;margin:0}
+	/* Slightly smaller profile image to improve fit */
+	.profile-photo{width:120px;height:160px}
 }
 
 .btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04121a;padding:0.55rem 1rem;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(12,18,28,0.6),0 0 18px rgba(34,211,238,0.06);transition:transform .16s,box-shadow .16s}
