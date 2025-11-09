@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Personal Portfolio</title>
+		<meta name="description" content="Personal portfolio showcasing projects and contact information." />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<header class="site-header">
+			<div class="container header-inner">
+				<a class="logo" href="#">MyPortfolio</a>
+				<nav class="main-nav" aria-label="Main navigation">
+					<button class="nav-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Toggle navigation">
+						<span class="hamburger"></span>
+					</button>
+					<ul id="nav-list" class="nav-list">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</nav>
+				<button class="theme-toggle" aria-label="Toggle theme">☾</button>
+			</div>
+		</header>
+
+		<main>
+			<section id="home" class="hero">
+				<div class="container">
+					<div class="hero-grid">
+						<div class="hero-photo" aria-hidden="false">
+							<img src="Alex.png" alt="Profile photo of Adeeko Kehinde Victor" class="profile-photo" width="320" height="420" loading="lazy">
+						</div>
+						<div class="hero-content">
+							<h1>Hi, I'm Adeeko Kehinde Victor,</h1>
+							<p class="lead">An aspiring AI/ML engineer passionate about creating intelligent, data-driven solutions.</p>
+							<div class="about-brief" id="about">
+								<h2>About me</h2>
+								<p>As a budding AI/ML enthusiast, I'm on an exciting journey into the world of artificial intelligence and machine learning. Currently immersing myself in Python, data analysis, and ML frameworks, I'm combining my passion for learning with hands-on projects. 
+									While I'm early in my journey, I'm dedicated to exploring algorithms, building small intelligent applications, and embracing each challenge as a learning opportunity. Every project teaches me something new, and I'm eager to grow and contribute to this fascinating field.</p>
+								<ul class="skills">
+									<li>HTML & CSS</li>
+									<li>JavaScript</li>
+									<li>Python</li>
+									<li>Machine Learning</li>
+								</ul>
+							</div>
+							<p>
+								<a class="btn" href="#projects">See my work</a>
+								<a class="btn outline" href="#contact">Get in touch</a>
+							</p>
+						</div>
+						</div>
+					</div>
+				</section>
+
+			<section id="projects" class="projects container">
+				<h2>Projects</h2>
+				<div class="projects-grid">
+					<article class="project-card">
+						<h3>To-Do List App</h3>
+						<p>A simple to-do list application built with JavaScript, HTML, and CSS. It allows users to add, edit, and delete tasks.</p>
+		                        <p><a class="card-link" href="../To%20Do/index.html" target="_blank" rel="noopener noreferrer">View project</a></p>
+					</article>
+
+					<article class="project-card">
+						<h3>Calculator App</h3>
+						<p>A simple, responsive calculator app built with HTML, CSS, and JavaScript that performs basic arithmetic operations with a clean, user-friendly interface.</p>
+						<p><a class="card-link" href="../Calculator/index.html" target="_blank" rel="noopener noreferrer">View project</a></p>
+					</article>
+
+					<article class="project-card">
+						<h3>Pomodoro Timer</h3>
+						<p>A simple Pomodoro timer built with HTML, CSS, and JavaScript. It features work and break intervals, and allows users to customize their session lengths.</p>
+						<p><a class="card-link" href="../Pomodoro%20Timer/index.html" target="_blank" rel="noopener noreferrer">View project</a></p>
+					</article>
+				</div>
+			</section>
+
+			<section id="contact" class="contact container">
+				<h2>Contact</h2>
+				<p>If you'd like to work together, send a message — or email me at <a href="mailto:you@example.com">kehindevictor926@gmail.com</a>.</p>
+
+				<form id="contact-form" class="contact-form" novalidate>
+					<div class="field-row">
+						<label for="name">Name</label>
+						<input id="name" name="name" type="text" required>
+					</div>
+					<div class="field-row">
+						<label for="email">Email</label>
+						<input id="email" name="email" type="email" required>
+					</div>
+					<div class="field-row">
+						<label for="message">Message</label>
+						<textarea id="message" name="message" rows="5" required></textarea>
+					</div>
+					<div class="field-row">
+						<button type="submit" class="btn">Send message</button>
+					</div>
+				</form>
+			</section>
+		</main>
+
+		<footer class="site-footer">
+			<div class="container">
+				<p>&copy; <span id="year"></span> Adeeko Victor. Built with ❤️.</p>
+			</div>
+		</footer>
+
+		<script src="script.js" defer></script>
+	</body>
+</html>

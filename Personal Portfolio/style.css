@@ -1,0 +1,133 @@
+/* Basic reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;color:var(--text);background:var(--bg)}
+
+:root{
+	/* Light/default theme (kept for accessibility toggling) */
+	--bg:linear-gradient(180deg,#f8fafc,#eef2ff);
+	--surface:#ffffff;
+	--text:#0f1720;
+	--muted:#586069;
+	--accent:#0b79ff;
+	--accent-2:#06c;
+	--radius:10px;
+	--container:1100px;
+}
+
+/* Dark, AI-inspired theme: deep matte base with subtle neon highlights */
+:root[data-theme="dark"], html[data-theme="dark"], body[data-theme="dark"]{
+	--bg:linear-gradient(180deg,#071226 10%, #0b1220 60%);
+	--surface:rgba(255,255,255,0.02);
+	--panel:#0c1520; /* matte deep gray-blue */
+	--text:#e6f3fb;
+	--muted:#9aa6b8;
+	--accent:#22d3ee; /* cyan */
+	--accent-2:#7c3aed; /* purple */
+	--accent-3:#34d399; /* mint */
+	--glow:rgba(34,211,238,0.08);
+	--radius:12px;
+	--container:1100px;
+}
+
+/* Stronger defaults when dark is active: body uses the gradient var */
+html[data-theme="dark"] body, :root[data-theme="dark"] body, body[data-theme="dark"]{
+	background: var(--bg);
+	color: var(--text);
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 1rem}
+
+/* Header */
+.site-header{background:transparent;border-bottom:1px solid rgba(255,255,255,0.03);position:sticky;top:0;z-index:30;backdrop-filter:blur(6px)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0.75rem 0}
+.logo{font-weight:700;color:var(--text);text-decoration:none;position:relative}
+.logo::after{content:"";position:absolute;right:-10px;top:6px;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 12px var(--glow);opacity:0.95}
+
+.main-nav{position:relative}
+.nav-list{list-style:none;display:flex;gap:1rem}
+.nav-list a{color:var(--text);text-decoration:none;padding:0.5rem;display:inline-block}
+.nav-list a:focus{outline:2px dashed var(--accent);outline-offset:3px}
+
+.nav-toggle{display:none;background:transparent;border:0;padding:0.5rem}
+.hamburger{display:block;width:22px;height:2px;background:var(--text);position:relative}
+.hamburger::before,.hamburger::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--text)}
+.hamburger::before{top:-7px}
+.hamburger::after{top:7px}
+
+.theme-toggle{background:transparent;border:0;padding:0.25rem 0.5rem;font-size:1.1rem}
+
+/* Hero */
+.hero{padding:6rem 0;background:radial-gradient(600px 200px at 10% 10%, rgba(34,211,238,0.04), transparent 8%), radial-gradient(500px 160px at 90% 30%, rgba(124,58,237,0.03), transparent 10%)}
+.hero h1{font-size:2.4rem;margin-bottom:0.5rem;letter-spacing:0.4px}
+.lead{color:var(--muted);margin-bottom:1rem;max-width:68ch}
+
+/* Hero layout with profile photo */
+.hero-grid{display:flex;align-items:flex-start;gap:28px;justify-content:space-between}
+.hero-content{flex:1;min-width:0}
+.hero-photo{flex:0 0 360px;display:flex;align-items:flex-start;justify-content:center}
+/* Rectangular profile showing upper part: wider, taller, top-centered crop */
+.profile-photo{width:320px;height:420px;object-fit:cover;object-position:top center;border-radius:12px;border:2px solid rgba(255,255,255,0.04);box-shadow:0 18px 40px rgba(2,6,23,0.6),0 0 28px rgba(34,211,238,0.06);transition:transform .18s,box-shadow .18s}
+.profile-photo:hover{transform:translateY(-4px);box-shadow:0 28px 64px rgba(2,6,23,0.7),0 0 46px rgba(34,211,238,0.14)}
+.profile-photo:focus{outline:3px solid rgba(34,211,238,0.12);outline-offset:6px}
+
+@media (max-width:1000px){
+	/* Stack for small screens: image above text */
+	.hero-grid{flex-direction:column;gap:18px;text-align:center}
+	.profile-photo{width:220px;height:300px}
+	.hero-photo{flex:0 0 auto}
+}
+
+@media (max-width:480px){
+	.profile-photo{width:180px;height:240px}
+}
+
+.btn{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04121a;padding:0.55rem 1rem;border-radius:10px;text-decoration:none;font-weight:600;box-shadow:0 6px 18px rgba(12,18,28,0.6),0 0 18px rgba(34,211,238,0.06);transition:transform .16s,box-shadow .16s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(12,18,28,0.6),0 0 28px rgba(34,211,238,0.12)}
+.btn.outline{background:transparent;color:var(--accent);border:1px solid rgba(255,255,255,0.06);box-shadow:none}
+
+/* Sections */
+section{padding:3rem 0}
+
+/* Projects section specific tweaks: pull it up slightly and emphasize heading */
+.projects{padding-top:1.25rem;padding-bottom:2.25rem}
+.projects > h2{font-size:1.9rem;letter-spacing:0.25px;margin-bottom:0.85rem}
+.about p{max-width:70ch;margin:0.5rem 0}
+.skills{display:flex;gap:0.5rem;list-style:none;margin-top:0.5rem}
+.skills li{background:var(--surface);padding:0.35rem 0.6rem;border-radius:6px;color:var(--muted)}
+
+/* Projects grid */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.project-card{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));padding:1.25rem;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 24px rgba(2,6,23,0.45);transition:box-shadow .18s,transform .12s}
+.project-card h3{margin-bottom:0.5rem}
+.project-card:hover{transform:translateY(-6px);box-shadow:0 18px 44px rgba(2,6,23,0.6),0 0 28px rgba(124,58,237,0.06)}
+.card-link{color:var(--accent);text-decoration:none;text-shadow:0 2px 8px rgba(34,211,238,0.04)}
+
+/* Contact form */
+.contact-form{max-width:720px}
+.field-row{display:flex;flex-direction:column;margin-bottom:0.75rem}
+label{font-size:0.95rem;margin-bottom:0.25rem;color:var(--muted)}
+input[type="text"],input[type="email"],textarea{padding:0.6rem;border:1px solid rgba(255,255,255,0.04);border-radius:8px;background:rgba(255,255,255,0.01);color:var(--text)}
+
+.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:1.25rem 0;text-align:center;color:var(--muted)}
+
+/* Responsive */
+@media (max-width:900px){
+	.projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:700px){
+	.nav-list{position:absolute;right:0;top:100%;background:var(--surface);flex-direction:column;padding:0.5rem;border-radius:8px;display:none;min-width:180px;box-shadow:0 8px 24px rgba(2,6,23,0.08)}
+	.nav-list.show{display:flex}
+	.nav-toggle{display:inline-block}
+	.nav-list a{padding:0.6rem 1rem}
+	.projects-grid{grid-template-columns:1fr}
+	.header-inner{gap:0.5rem}
+}
+
+/* Small improvements */
+.outline{border:1px solid rgba(0,0,0,0.06)}
+.card-link:focus{outline:2px dashed var(--accent);outline-offset:3px}
+
+/* Slightly lower CTA buttons in hero for visual balance */
+.hero-content > p{margin-top:1.25rem}

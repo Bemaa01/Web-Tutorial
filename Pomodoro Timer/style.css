@@ -1,0 +1,33 @@
+:root{
+	/* Dark AI-themed palette */
+	--bg: linear-gradient(180deg,#071226 5%, #0b1220 60%);
+	--card: rgba(255,255,255,0.02);
+	--panel: #0c1520;
+	--text: #e6f3fb;
+	--muted: #94a3b8;
+	--accent: #22d3ee; /* cyan */
+	--accent-2: #7c3aed; /* purple */
+	--glass: rgba(255,255,255,0.02);
+	--glow: rgba(34,211,238,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:28px;color:var(--text)}
+.app{width:100%;max-width:460px}
+.app-header{text-align:center;margin-bottom:12px}
+.timer-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border-radius:14px;padding:20px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 50px rgba(2,6,23,0.6)}
+.modes{display:flex;gap:10px;justify-content:center;margin-bottom:12px}
+.mode-btn{padding:8px 14px;border-radius:10px;border:1px solid transparent;background:transparent;cursor:pointer;color:var(--muted);font-weight:600}
+.mode-btn.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04121a;box-shadow:0 8px 30px var(--glow)}
+.display{text-align:center;font-size:3.1rem;font-weight:700;padding:18px 0;margin-bottom:10px;color:var(--text);letter-spacing:0.6px}
+.controls{display:flex;gap:10px;justify-content:center;margin-bottom:12px}
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#04121a;border:0;padding:10px 16px;border-radius:10px;cursor:pointer;font-weight:700;box-shadow:0 10px 30px rgba(2,6,23,0.6),0 0 22px var(--glow)}
+.btn.outline{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.04)}
+.btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+.settings{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:8px}
+.settings label{font-size:0.9rem;color:var(--muted);display:flex;flex-direction:column;align-items:center}
+.settings input[type="number"]{width:78px;padding:8px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:rgba(255,255,255,0.01);color:var(--text)}
+.checkbox{flex-basis:100%;text-align:center;margin-top:8px}
+.note{text-align:center;color:var(--muted);font-size:0.9rem;margin-top:10px}
+@media (max-width:420px){.display{font-size:2.4rem}.settings input[type="number"]{width:60px}}
